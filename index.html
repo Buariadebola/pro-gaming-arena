@@ -1,1 +1,974 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>http://progamingarena.com</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
+		}
+		header{
+			padding-bottom: 20px;
+			background-color: rgb(32, 32, 32);
+			width: 100%;
+			height: 500px;
+			z-index: -1;
+		}
+		.triangle{
+			width: 0;
+			height: 0;
+			position: absolute;
+			border-style: solid;
+			border-width: 300px 650px 0 0;
+			border-color: rgb(224, 90, 90) transparent transparent transparent;
+			top: 0%;
+			left: 0%;
+			z-index: 1;
+		}
+		@media only screen and (max-width: 768px){
+			header{
+				height: 400px;
+			}
+			.left-column button{
+				margin-left: 30px;
+			}
+	.triangle{
+		width: 0;
+			height: 0;
+			position: absolute;
+			border-style: solid;
+			border-width: 250px 350px 0 0;
+			border-color: rgb(224, 90, 90) transparent transparent transparent;
+			top: 0%;
+			left: 0%;
+			z-index: 1;
+	}
+}
+		nav{
+			width: 100%;
+			background-color: transparent;
+			display: flex;
 
+		}
+		.home{
+			font-size: calc(8px + 1vw);
+			cursor: pointer;
+		}
+		.left-nav{
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: calc(5px + 1vw);
+			padding-left: 50px;
+			text-align: left;
+			height: 60px;
+			width: 35%;
+			color: white;
+			z-index: 1;
+		}
+		.right-nav{
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: calc(4px + 1vw);
+			height: 60px;
+			width: 65%;
+			color: white;
+			padding: 0 50px 0 0;
+			z-index: 1;
+		}
+		.right-nav ul{
+			justify-content: space-between;
+			display: flex;
+		}
+		.right-nav ul li{
+			list-style: none;
+			text-align: center;
+		}
+		.right-nav a{
+			text-decoration: none;
+			color: white;
+			transition: 0.3s ease-in-out;
+		}
+		.right-nav a:hover{
+			font-size: calc(2px + 1vw);
+			color: rgb(255, 109, 109);
+		}
+		.right-nav ul button{
+			background-color: rgb(224, 90, 90);
+			padding: 3px 15px 3px 15px;
+			transition: 0.3s ease-in-out;
+		}
+		.right-nav ul button:hover{
+			background-color: rgb(255, 109, 109);
+			padding: 4px 20px 4px 20px;
+		}
+		@media only screen and (max-width: 768px){
+			.right-nav ul li{
+		display: none;
+		}
+}
+		.left-column{
+			height: auto;
+			width: 40%;
+			color: white;
+			z-index: 1;
+			border-radius: 40px;
+			padding: 0 15px 20px 15px;
+			margin: 20px 0 0 20px;
+		}
+		.left-column h1{
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			font-size: calc(20px + 1vw);
+			transition: 0.3s ease-in-out;
+		}
+		.left-column p{
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: calc(1.5px + 1vw);
+			transition: 0.3s ease-in-out;
+		}
+		.left-column li{
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: calc(1.5px + 1vw);
+			transition: 0.3s ease-in-out;
+		}
+		.left-column button{
+			margin-top: 5px;
+			background-color: rgb(224, 90, 90);
+			padding: 5px 15px 5px 15px;
+			transition: 0.3s ease-in-out;
+		}
+		.left-column button:hover{
+			margin-top: 5px;
+			background-color: rgb(255, 135, 135);
+		}
+		.right-column{
+			width: 60%;
+			display: flex;
+			justify-content: center;
+		}
+		.right-column img{
+			margin: 0 auto;
+			width: calc(85% + 1vw);
+			height: auto;
+		}
+		.column-wrapper{
+			display: flex;
+		}
+		@media only screen and (max-width: 768px){
+			.right-column{
+		display: none;
+	}
+	.left-column{
+		color: white;
+		border-radius: 40px;
+		padding: 10px 15px 20px 15px;
+		margin: 0 auto;
+		width: 80%;
+	}
+	.left-column h1{
+		font-size: 35px;
+	}
+	.left-column p{
+		font-size: 12px;
+	}
+	.left-column li{
+		font-size: 12px;
+	}
+	.left-column button{
+		padding: 5px;
+		font-size: 10px;
+	}
+}
+		.list-of-games{
+			display: flex;
+
+		}
+		.left-log{
+			width: 65%;
+			margin-right: 0;
+		}
+		.left-log img{
+			width: 100%;
+		}
+		.right-log{
+			width: 30%;
+			margin-top: 60px;
+			margin-left: 0;
+			padding: 0;
+			transition: 0.3s ease-in-out;
+		}
+		.right-log h2{
+			margin-bottom: 0;
+			padding-bottom: 0;
+			text-align: center;
+			font-size: 50px;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+		.right-log hr{
+			height: 3px;
+			background-color: black;
+		}
+		.right-log li{
+			line-height: 1.5;
+			font-size: 15px;
+			font-family: Arial, Helvetica, sans-serif;
+			list-style: none;
+			text-align: center;
+		}
+		@media only screen and (max-width: 768px){
+			.list-of-games{
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+			.left-log{
+				width: 90%;
+				margin-bottom: 20px;
+			}
+			.right-log{
+				margin: 0 auto;
+				width: 80%;
+			}
+		}
+		.features{
+			margin: 0;
+			padding: 10px 0 20px 0;
+			background-color: rgb(66, 66, 66);
+		}
+		.features h2{
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: white;
+			margin-left: 40px;
+		}
+		.features button{
+			background-color: rgb(224, 90, 90);
+			padding: 5px 15px 5px 15px;
+			margin: 0 auto;
+			display: flex;
+			transition: 0.3s ease-in-out;
+		}
+		.features button:hover{
+			background-color: rgb(255, 109, 109);
+		}
+		.feature-content{
+			padding: 30px;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 10px;
+			transition: 0.3s ease-in-out;
+		}
+		@media only screen and (max-width: 768px){
+			.features h2{
+				font-size: 20px;
+			}
+			.feature-content{
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+			}
+	}
+		.box{
+			background-color: white;
+			border-radius: 40px;
+			width: 80%;
+			padding: 20px;
+			border: 3px solid black;
+		}
+		.reviews{
+			display: flex;
+			padding-bottom: 20px;
+		}
+		.right-block{
+			width: 70%;
+		}
+		.box2 img{
+			width: 40px;
+			height: 40px;
+			border-radius: 30px;
+			border: 2px solid black;
+		}
+		.box2 a{
+			margin-left: 0;
+			font-size: 15px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.box2 p{
+			margin-left: 60px;
+		}
+		.box2{
+			width: 60%;
+			height: auto;
+			background-color: rgb(174, 174, 174);
+			border-radius: 30px 0 30px 0;
+			border: 1px solid black;
+			margin-top: 60px;
+			transition: 0.3s ease-in-out;
+		}
+		.box10 img{
+			width: 40px;
+			height: 40px;
+			border-radius: 30px;
+			border: 2px solid black;
+		}
+		.box10 a{
+			margin-left: 0;
+			font-size: 15px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.box10 p{
+			margin-left: 60px;
+		}
+		.box10{
+			margin-left: 100px;
+			width: 60%;
+			height: auto;
+			background-color: rgb(174, 174, 174);
+			border-radius: 30px 0 30px 0;
+			border: 1px solid black;
+			margin-top: 40px;
+			transition: 0.3s ease-in-out;
+		}
+		.left-block{
+			width: 30%;
+			padding: 30px;
+		}
+		.left-block blockquote{
+			margin-top: 0;
+			width: 20px;
+			height: 90px;
+			background-color: rgb(224, 90, 90);
+			margin-right: 10px;
+		}
+		.left-block h2{
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-size: 40px;
+			display: flex;
+			margin-bottom: 0;
+			transition: 0.3s ease-in-out;
+		}
+		.left-block p{
+			font-size: 18px;
+			margin-left: 20px;
+			margin-top: 0;
+			text-align: center;
+		}
+		@media only screen and (max-width: 768px){
+			.reviews{
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+			.right-block{
+				width: 90%;
+				padding: 0;
+				justify-content: center;
+				align-items: center;
+			}
+			.left-block{
+				width: 80%;
+			}
+			.box10{
+				margin-left: 100px;
+				width: 80%;
+			}
+			.box2{
+				margin-left: 40px;
+				width: 80%;
+			}
+		}
+		.payment-section{
+			background-color: rgb(66, 66, 66);
+		}
+		.top-payment{
+			background-color: rgb(66, 66, 66);
+			display: flex;
+			justify-items: center;
+			align-items: center;
+		}
+		.left-payment{
+			width: 50%;
+			padding: 30px 5px 30px 5px;
+			margin-left: 50px;
+			margin-top: 30px;
+		}
+		.left-payment img{
+			width: 90%;
+			margin: 0 auto;
+			display: flex;
+			height: auto;
+			transition: 0.3s ease-in-out;
+		}
+		.right-payment{
+			padding: 35px;
+			height: 150px;
+			width: 25%;
+			background-color: white;
+			transition: 0.3s ease-in-out;
+		}
+		.right-payment img{
+			width: 45px;
+		}
+		@media only screen and (max-width: 768px){
+			.top-payment{
+				padding-top: 30px;
+				display: grid;
+				grid-gap: 20px;
+				grid-template-columns: 1fr;
+			}
+			.left-payment{
+				margin: 0 auto;
+				padding: 0;
+				width: 80%;
+			}
+			.right-payment{
+				margin: 0 auto;
+				padding: 40px;
+				width: 50%;
+			}
+		}
+		.payment-plan{
+			background-color: rgb(66, 66, 66);
+			padding-bottom: 40px;
+		}
+		.payment-plan h2{
+			color: white;
+			text-align: center;
+		}
+		.container{
+			padding-top: 40px;
+			display: flex;
+			width: 100%;
+			margin: 0 auto;
+			justify-content: center;
+		}
+		.box4{
+			width: 16%;
+			background-image: linear-gradient(rgb(168, 0, 235) 35%, white 60%);
+			border-radius: 40px;
+			padding: 20px;
+			box-shadow: 0 5px 5px 5px rgb(15, 15, 15);
+			margin-right: 0;
+			z-index: 1;
+		}
+		.box5{
+			margin: 0;
+			width: 16%;
+			background-image: linear-gradient(rgb(235, 98, 0) 35%, white 60%);
+			border-radius: 40px;
+			padding: 20px;
+			box-shadow: 0 5px 5px 5px rgb(15, 15, 15);
+		}
+		.box3{
+			width: 16%;
+			background-image: linear-gradient(rgb(0, 231, 235) 35%, white 60%);
+			border-radius: 40px;
+			padding: 20px;
+			box-shadow: 0 5px 5px 5px rgb(15, 15, 15);
+			margin: 0;
+		}
+		@media only screen and (max-width:768px) {
+			.container{
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 15px;
+			width: 100%;
+			margin: 0 auto;
+			justify-content: center;
+				
+			}
+			.box3{
+				margin: 0 auto;
+				width: 40%;
+			}
+			.box4{
+				margin: 0 auto;
+				width: 40%;
+			}
+			.box5{
+				margin: 0 auto;
+				width: 40%;
+			}
+		}
+		.subscribe{
+			display: flex;
+			height: 300px;
+			margin-bottom: 0;
+		}
+		.sub-left{
+			width: 35%;
+			margin-left: 50px;
+			padding: 10px 0 0 0;
+			transition: 0.3s ease-in-out;
+		}
+		.sub-left blockquote{
+			margin-top: 0;
+			width: 20px;
+			height: 90px;
+			background-color:rgb(224, 90, 90);
+			margin-right: 10px;
+		}
+		.sub-left h1{
+			display: flex;
+			margin-left: 0;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-size: 45px;
+			margin-bottom: 0;
+			transition: 0.3s ease-in-out;
+		}
+		.sub-left p{
+			font-size: 18px;
+			margin-left: 40px;
+			margin-top: 0;
+			text-align: center;
+			transition: 0.3s ease-in-out;
+		}
+		.sub-right{
+			margin-top: 80px;
+			padding-left: 30px;
+			width: 75%;
+			display: flex;
+			justify-items: center;
+			align-items: center;
+		}
+		@media only screen and (max-width:768px){
+			.subscribe{
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+			.sub-left{
+				margin: 0 auto;
+				padding: 0;
+				width: 80%;
+			}
+			.sub-right{
+				padding: 0;
+				width: 95%;
+			}
+		}
+		.payment-plan h2{
+			font-family: Arial, Helvetica, sans-serif;
+			text-decoration: underline;
+		}
+		.box6{
+			width: 98%;
+			padding: 5px;
+			border: 1.5px solid black;
+			background-color: white;
+		}
+		.box6 input{
+			border: 0;
+			width: 80%;
+		}
+		.box6 button{
+			font-size: calc(2px + 1vw);
+			border: 1px solid black;
+			background-color: rgb(224, 90, 90);
+			padding: 5px 0 5px 0;
+			width: 18%;
+		}
+		.box6 button:hover{
+			background-color: rgb(255, 109, 109);
+			padding: 5px 0 5px 0;
+		}
+		.container2{
+			border: 2px solid black;
+			background-color: rgb(224, 90, 90);
+			padding: 30px 30px 30px 30px;
+			width: 70%;
+		}
+		@media only screen and (max-width:768px){
+			.container2{
+				margin: 0 auto;
+				width: 80%;
+			}
+			.box6 input{
+				width: 70%;
+			}
+			.box6 button{
+				padding: 5px 10px 5px 10px;
+				width: 26%;
+				font-size: 12px;
+			}
+		}
+		.quote{
+			padding-bottom: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.right-quote{
+			padding-left: 0;
+			margin-left: 0;
+			width: 45%;
+		}
+		.right-quote h1{
+			margin-bottom: 0;
+			padding-bottom: 0;
+			margin-top: 0;
+			padding-top: 0;
+			font-size: 60px;
+			text-align: left;
+			font-family: arial;
+			background-image: linear-gradient(to right, black 40%, rgb(224, 90, 90) 60%);
+			background-clip: text;
+			color: transparent;
+			transition: 0.3s ease-in-out;
+		}
+		.left-quote{
+			padding-right: 0;
+			margin-right: 0;
+			margin: 0 auto;
+			display: flex;
+			width: 40%;
+			transition: 0.3s ease-in-out;
+		}
+		.left-quote img {
+			width: 100%;
+		}
+		@media only screen and (max-width:786px){
+			.quote{
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+			.right-quote h1{
+				font-size: 45px;
+				background-image: linear-gradient(to right, black 40%, rgb(224, 90, 90) 40%);
+			background-clip: text;
+			color: transparent;
+			}
+			.right-quote{
+				padding-top: 20px;
+				margin: 0 auto;
+				width: 70%;
+			}
+			.left-quote img{
+				width: 90%;
+				margin: 0 auto;
+			}
+			.left-quote{
+				margin-top: 200px;
+				width: 90%;
+			}
+		}
+		.container h3{
+			font-size: 20px;
+			color: white;
+		}
+		.container h1{
+			font-size: 30px;
+		}
+		.container a{
+			padding-left: 10px;
+			font-size: 15px;
+		}
+		.box8 li{
+			list-style: none;
+		}
+		.box9 img{
+			width: 60px;
+		}
+		@media only screen and (max-width:786px){
+			.box9{
+				width: 90%;
+			}
+			.container a{
+				margin: 0 autos;
+				padding: 0;
+			}
+			.box8{
+				width: 90%;
+			}
+			.box7{
+				width: 95%;
+			}
+		}
+		.box8 ul{
+			line-height: 1.5;
+		}
+		footer{
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 18px;
+			text-align: center;
+			color: white;
+			background-color: rgb(66, 66, 66);
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			padding: 40px 0 20px 0;
+		}
+		@media only screen and (max-width:786px) {
+			footer{
+				font-size: 12px;
+			}
+		}
+		.menu-button{
+			display: none;
+		}
+		.menu-bar{
+			display: none;
+		}
+		@media only screen and (max-width:768px){
+		.menu-button{
+			display: block;
+			border-radius: 40px;
+			padding: 0;
+			margin: 0 auto;
+			width: 43px;
+			height: 43px;
+			z-index: 2;
+			position: absolute;
+			background-color: rgb(224, 90, 90);
+			top: 10px;
+			right: 5px;
+			cursor: pointer;
+			transition: 0.3s ease-in-out;
+		}
+		.menu-button:hover{
+			width: 40px;
+			height: 40px;
+		}
+		.menu-button img:hover{
+			width: 37px;
+			height: 37px;
+		}
+		.menu-bar{
+			color: rgb(224, 90, 90);
+			display: block;
+			padding: 5px 70px 5px 30px;
+			margin: 0;
+			position: absolute;
+			z-index: 1;
+			top: 0px;
+			right: -800px;
+			width: 90%;
+			height: 40px;
+			background-color: rgb(191, 191, 191);
+			transition: right 3s;
+			border-bottom: 1px solid black;
+		}
+		.menu-bar a{
+			text-decoration: none;
+			color: rgb(224, 90, 90);
+		}
+		.menu-bar.show{
+			right: 0;
+		}
+		.menu-bar li{
+			padding-bottom: 2px;
+			position: relative;
+			list-style: none;
+			font-size: 14px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.menu-bar li::after{
+			content: '';
+			background: rgb(255, 109, 109);
+			width: 3px;
+			height: 3px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			transition: 0.5s ease-in-out;
+		}
+		.menu-bar li:hover::after{
+				width: 100%;
+		}
+		.menu-bar ul{
+			justify-content: space-between;
+			display: flex;
+		}
+		.menu-button img{
+			width: 40px;
+			height: 40px;
+		}
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="triangle"></div>
+		<nav>
+			<div class="left-nav">
+				<h1>Logo</h1>
+			</div>
+			<div class="right-nav">
+				<ul>
+					<li class="home"><strong>HOME</strong></li>
+					<li><a href="">TOURNAMENT</a></li>
+					<li><a href="leaderboard.html">LEADERBOARD</a></li>
+					<li><a href="">TEAM PROFILE</a></li>
+					<li><button><strong>LOGIN</strong></button></li>
+				</ul>
+			</div>
+		</nav>
+		<section class="column-wrapper">
+		<div class="left-column">
+			<h1>Connect. Compete. Conquer like a pro!</h1>
+			<p>Pro gaming arena is a game registration website that allows diffent users to register and compete in various games. Simply click "REGISTER" to start your registration process</p>
+				<p>All you need to do is to fill the above form, which requests: </p>
+					<ol>
+						<li>Your full-name</li>
+						<li>your game user-name</li>
+						<li>your Email address</li>
+						<li>your gender (incase of gender based competitions)</li>
+					</ol>
+					<p>and wait for a confirmation message VIA email</p>
+					<button><strong>REGISTER</strong></button>
+		</div>
+		<div class="right-column">
+			<img src="images/ps4pad.jpg" alt="#">
+		</div>
+		</section>
+	</header>
+	<section class="list-of-games">
+		<div class="left-log">
+			<img src="images/games.png" alt="#">
+		</div>
+		<div class="right-log"> 
+			<h2>Available games</h2>
+			<hr>
+			<ul>
+				<li>Call of Duty mobie</li>
+				<li>EA sport FC25</li>
+				<li>Fortnite</li>
+				<li>Asphalt 9</li>
+				<li>Free fire</li>
+				<li>E football</li>
+				<li>Warframe</li>
+			</ul>
+		</div>
+	</section>
+	<section class="features">
+		<h2>SOCIAL FEATURES WE PROVIDE</h2>
+		<div class="feature-content">
+			<div class="box">
+				<h3>Tournament bracket</h3>
+				<p>We display tournament brackets, showcasing the competition format and progress</p>
+			</div>
+			<div class="box">
+				<h3>Leaderboards</h3>
+				<p>We display leaderboard to showcase top players and teams</p>
+			</div>
+			<div class="box">
+				<h3>Match Scheduling</h3>
+				<p>We have features that enable us to schedule matches and notify participants</p>
+			</div>
+		</div>
+		<button><strong>view more</strong></button>
+	</section>
+	<section class="reviews">
+		<div class="left-block">
+			<h2><blockquote></blockquote>What people are saying about us</h2>
+			<p>Here are some reviews from our users<p>
+		</div>
+		<div class="right-block">
+			<div class="box2">
+				<a><img src="images/images (15).jpeg" alt="#">deenewbie194</a>
+				<p>love the simplicity and speed of this website, it has varies of tournaments. Great job!</p>
+			</div>
+			<div class="box10">
+				<a><img src="images/images (16).jpeg" alt="#">gamingbro2387</a>
+				<p>easy registration process, it has diffent Payment options and a userfriendly interface, perfect for gamers
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="payment-section">
+		<div class="top-payment">
+		<div class="left-payment"><img src="images/pay.jpg" alt="img"></div>
+		<div class="right-payment">
+			<h3><blockquote></blockquote>Secure Payment</h3>
+			<p>We accept all major credit cards and ensure a secure transaction process</p>
+			<img src="images/AMEX.jpg" alt=""><img src="images/visa.jpg" alt=""><img src="images/mastercard (1).jpg" alt=""><img src="images/paypal.jpg" alt="">
+		</div>
+		</div>
+		<section class="payment-plan">
+			<h2>PAYMENT PLAN</h2>
+			<div class="container">
+			<div class="box3">
+				<h3>Basic</h3>
+				<h1>$4<a>monthly</a></h1>
+				<p></p>
+			</div>
+			<div class="box4">
+				<h3>Premium</h3>
+				<h1>$10<a>for 2 months</a></h1>
+				<p>Access to premium tournament with the heighest cash prize</p>
+			</div>
+			<div class="box5">
+				<h3>Mid</h3>
+				<h1>$6<a>monthly</a></h1>
+				<p></p>
+			</div>
+			</div>
+		</section>
+		</section>
+		<section class="subscribe">
+			<div class="sub-left">
+				<h1><blockquote></blockquote>Subscribe for newsletter</h1>
+				<p>Subscribe to get latest news and other interesting information</p>
+			</div>
+			<div class="sub-right">
+				<div class="container2">
+					<div class="box6">
+						<input type="text" placeholder="Your email address..."><button>Subscribe</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="quote">
+			<div class="left-quote">
+				<img src="images/game3.jpg" alt="">
+			</div>
+			<div class="right-quote">
+				<h1>Level up your calm...</h1>
+				<h1>One game at a time</h1>
+			</div>
+		</section>
+		<button class="menu-button"><img src="images/menu.png" alt=""></button>
+		<div class="menu-bar">
+			<ul>
+				<li><a href="">TOURNAMENT</a></li>
+				<li><a href="">LEADERBOARD</a></li>
+				<li><a href="">TEAM</a></li>
+				<li><a href="">LOGIN</a></li>
+			</ul>
+		</div>
+		<footer>
+			<div class="box9">
+				<h1>PRO GAMING ARENA</h1>
+				<img src="images/game.png" alt="">
+			</div>
+			<div class="box7">
+				<p>copyright 2025</p>
+				<p>All rights reserved</p>
+			</div>
+			<div class="box8">
+				<h3>CONTACT US:</h3>
+				<ul>
+					<li>Whatsapp: +234 811 532 9375</li>
+					<li>Email: buariadebola@gmail.com</li>
+					<li>Telegram: +234 811 532 9375</li>
+				</ul>
+			</div>
+		</footer>
+		<script>
+			const menuButton = document.querySelector('.menu-button')
+			const menuBar = document.querySelector('.menu-bar')
+
+			menuButton.addEventListener('mouseover', () =>{
+				menuBar.classList.add('show')
+			})
+			document.addEventListener('click', (e) => {
+  if (!menuButton.contains(e.target) && !menuBar.contains(e.target)) {
+    menuBar.classList.remove('show');
+  }
+});
+
+		</script>
+</body>
+</html>
