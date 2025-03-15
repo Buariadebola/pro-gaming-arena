@@ -381,8 +381,12 @@
 				margin:0 auto;
 				width: 90%;
 			}
+			.left-block blockquote{
+				margin-left: 0px;
+			}
+			
 			.box10{
-				margin-left: 100px;
+				margin-left: 60px;
 				width: 70%;
 			}
 			.box10 p{
@@ -392,7 +396,7 @@
 				font-size:10px;
 			}
 			.box2{
-				margin-left: 40px;
+				margin-left: 20px;
 				width: 70%;
 			}
 		}
@@ -442,8 +446,12 @@
 			}
 			.right-payment{
 				margin: 0 auto;
-				padding: 20px 30px 40px 30px;
-				width: 50%;
+				padding:10px;
+				height:200px;
+				width: 55%;
+			}
+			.right-payment p{
+				font-size:10px;
 			}
 		}
 		.payment-plan{
@@ -561,12 +569,16 @@
 			.sub-left h1{
 			font-size: 40px;
 			}
+			.sub-left blockquote{
+				margin-left:0;
+			}
 			.sub-left{
 				margin: 0 auto;
 				padding: 0;
 				width: 90%;
 			}
 			.sub-right{
+				margin:0 auto;
 				padding: 0;
 				width: 90%;
 			}
@@ -763,12 +775,12 @@
 			margin: 0;
 			position: absolute;
 			z-index: 1;
-			top: 0px;
-			right: -800px;
+			top: -100px;
+			right: 0px;
 			width: 90%;
 			height: 40px;
 			background-color: rgb(191, 191, 191);
-			transition: right 3s;
+			transition: top 2s;
 			border-bottom: 1px solid black;
 		}
 		.menu-bar a{
@@ -776,7 +788,7 @@
 			color: rgb(224, 90, 90);
 		}
 		.menu-bar.show{
-			right: 0;
+			top: 0;
 		}
 		.menu-bar li{
 			padding-bottom: 2px;
