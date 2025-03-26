@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tournament page</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: rgb(17, 23, 83);
+        overflow-x: hidden;
+    }
+    nav{
+        z-index: 1;
+        background-color: rgb(0, 191, 255);
+        height: 100%;
+        width: 20px;
+        overflow: hidden;
+        position: fixed;
+        color: rgb(0, 0, 133);
+        margin: 0;
+        padding: 80px 20px 0 0;
+        transition: 0.5s ease-in-out;
+    }
+    nav:hover{
+        width: 170px;
+        border: 4px solid rgb(0, 0, 133);
+    }
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
+    nav ul li{
+        padding: 10px;
+        margin: 0;
+        list-style: none;
+        text-align: center;
+        border-bottom: 3px solid black;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+    nav ul li a{
+        text-decoration: none;
+        color: rgb(0, 0, 133);
+    }
+    nav ul li:hover{
+        background-color: blueviolet;
+    }
+    header{
+        height: 40px;
+        padding: 20px 0 0 100px;
+    }
+    header a{
+        font-size: 30px;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to right, rgb(255, 0, 140)40%, rgb(174, 0, 255) 70%);
+        animation: color-movement 1.5s ease-in-out infinite 1s;
+    }
+    @keyframes color-movement {
+        0%{
+            color: 0;
+        }
+        50%{
+            background-image: linear-gradient(to right, rgb(174, 0, 255)40%, rgb(255, 0, 140) 70%)
+        }
+    }
+    .left-1{
+        padding: 50px 0 0 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .left-1 .left-column{
+    padding: 30px;
+        width: 80%;
+        height: 300px;
+        background-color: rgb(17, 17, 65);
+        box-shadow: inset 10px 10px 3px rgb(30, 30, 114), 10px 10px 5px black;
+        color: white;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        animation: fade-in 1s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+    .left-1 .left-column:hover{
+    box-shadow: inset 10px 10px 3px black, 10px 10px 4px rgb(30, 30, 114);
+    }
+    .left{
+        padding: 50px 0 0 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        opacity: 0;
+        transform: translateX(200px);
+        transition: opacity 1s, transform 1s;
+    }
+    .left.active{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .left .left-column{
+    padding: 30px;
+        width: 80%;
+        height: 300px;
+        background-color: rgb(17, 17, 65);
+        box-shadow: inset 10px 10px 3px rgb(30, 30, 114), 10px 10px 5px black;
+        color: white;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        animation: fade-in 1s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+    .left .left-column:hover{
+    box-shadow: inset 10px 10px 3px black, 10px 10px 4px rgb(30, 30, 114);
+    }
+    .right{
+        padding: 50px 0 0 150px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        opacity: 0;
+        transform: translateX(200px);
+        transition: opacity 1s, transform 1s;
+    }
+    .right.active{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .right .right-column{
+        padding: 30px;
+        width: 80%;
+        height: 300px;
+        background-color: rgb(17, 17, 65);
+        box-shadow: inset 10px 10px 3px rgb(30, 30, 114), 10px 10px 5px black;
+        color: white;
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .right .right-column:hover{
+    box-shadow: inset 10px 10px 3px black, 10px 10px 4px rgb(30, 30, 114);
+    }
+    .right .left-column, .left .right-column, .left-1 .right-column{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    form{
+        width: 70%;
+        background-color: white;
+        padding: 30px;
+        background-image: linear-gradient(to right, rgb(255, 0, 140), rgb(174, 0, 255));
+        border-radius: 30px;
+    }
+    form input{
+        width: 90%;
+        height: 20px;
+        border-bottom: 4px solid black;
+        border-top: 0;
+        border-left: 0;
+        outline: none;
+        font-size: 20px;
+        transition: 0.5s ease-in-out;
+        background-color: transparent;
+    }
+    form input:hover{
+        margin-top: 10px;
+        height: 30px;
+    }
+    form label a{
+        font-size: 20px;
+    }
+    form button{
+        margin-top: 20px;
+        width: 90%;
+        background-color: rgb(48, 48, 48);
+        border-radius: 20px;
+        font-size: 15px;
+        padding: 5px;
+        color: rgb(255, 0, 140);
+        border: 2px solid black;
+    }
+    form button:hover{
+        background-color: rgb(78, 78, 78);
+    }
+    form select{
+        margin-top: 10px;
+        background-color: rgb(48, 48, 48);
+        color: white;
+        padding: 5px;
+        border: 0;
+        border-radius: 10px;
+    }
+    form select:hover{
+        background-color: rgb(78, 78, 78);
+    }
+    @media only screen and (max-width:768px) {
+        .left, .right, .left-1{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 40px;
+            padding: 50px 0 30px 20px;
+            border-bottom: 2px solid white ;
+        }
+        .right .right-column, .left .left-column, .left-1 .left-column{
+            width: 70%;
+            height: 200px;
+            font-size: smaller;
+            margin-left: 35px;
+    }
+    header{
+        width: 50%;
+        padding: 20px 0 0 50px;
+    }
+    header a{
+        font-size: 20px;
+    }
+    form{
+        padding: 20px;
+        width: 60%;
+    }
+    form input{
+        border-bottom: 2px solid black;
+    }
+    form label a{
+        font-size: 15px;
+    }
+    form button{
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+</style>
+<body>
+    <nav>
+        <ul>
+            <li><a href="PGA.html">HOME</a></li>
+            <li><a href="leaderboard.html">LEADERBOARD</a></li>
+            <li><a href="">TEAM PROFILE</a></li>
+            <li><a href="update.html">UPDATES</a></li>
+            <li><a href="profile.html">MY PROFILE</a></li>
+        </ul>
+    </nav>
+    <header>
+        <a>PRO GAMING ARENA</a>
+    </header>
+    <section class="left-1">
+        <div class="left-column">
+            <h1>EA Sport FC25</h1>
+            <h2>Premium subscribers</h2>
+            <h3>Time:evening(5pm-7pm)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+        <div class="right-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+    </section>
+    <section class="right">
+        <div class="left-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <h1>Call of Duty</h1>
+            <h2>Premium subscribers</h2>
+            <h3>Time:night(12am-2am)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+    </section>
+    <section class="left">
+        <div class="left-column">
+            <h1>Free fire</h1>
+            <h2>Mid subscribers</h2>
+            <h3>Time:night(8pm-10pm)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+        <div class="right-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+    </section>
+    <section class="right">
+        <div class="left-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <h1>E football</h1>
+            <h2>Premium users</h2>
+            <h3>Time:midnight(12am-2am)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+    </section>
+    <section class="left">
+        <div class="left-column">
+            <h1>Fortnite</h1>
+            <h2>Basic subscribers</h2>
+            <h3>Time:evening(5pm-7pm)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+        <div class="right-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+    </section>
+    <section class="right">
+        <div class="left-column">
+            <form action="">
+                <label for="name"> <a>Full-name</a>
+                    <input type="text">
+                </label>
+                <label for="name"> <a>User-name</a>
+                    <input type="text">
+                </label>
+                <label for="email"><a>Email</a>
+                    <input type="email">
+                </label>
+                <label for="gender"><a>Gender</a>
+                    <select name="gender" id="gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <h1>Warframe</h1>
+            <h2>Basic subscribers</h2>
+            <h3>Time:midnight(12am-2am)</h3>
+            <p>Fill the form if you are satisfied with the information given</p>
+        </div>
+    </section>
+</body>
+<script>
+    const fadeSlideElements = document.querySelectorAll('.right');
+    window.addEventListener('scroll', () => {
+        fadeSlideElements.forEach(element => {
+            const elementTop = element.offsetTop;
+            const elementHeight = element.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition + windowHeight >= elementTop + elementHeight / 2) {
+                element.classList.add('active');
+            }
+        });
+    });
+
+    const fadeSlides = document.querySelectorAll('.left');
+    window.addEventListener('scroll', () => {
+        fadeSlides.forEach(slide => {
+            const slideTop = slide.offsetTop;
+            const slideHeight = slide.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition + windowHeight >= slideTop + slideHeight / 2) {
+                slide.classList.add('active');
+            }
+        });
+    });
+</script>
+</html>
